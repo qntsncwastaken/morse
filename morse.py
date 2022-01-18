@@ -27,4 +27,6 @@ def decode_from_morse(code):  # "... --- ...  ... --- ..." => "sos sos"
 
 
 def main():
-    pass
+    action = int(input('Если вы хотите закодировать сообщение - введите 0, раскодировать - 1 \n'))
+    if action == 0:
+        text = input('Введите сообщение \n')
