@@ -22,8 +22,16 @@ def encode_to_morse(text):  # "sos sos" => "... --- ...  ... --- ..."
     return text
 
 
-def decode_from_morse(code):  # "... --- ...  ... --- ..." => "sos sos"
-    return code
+def decode_from_morse(code):  # "... --- ...  ... --- ..." => "sos sos" вроде работает
+    code = code.split('  ')
+    for i in range(len(code)):
+        code[i] = code[i].split()
+    for i in range(len(code)):
+        for j in range(len(code[i])):
+            code[i][j] = reverse_morse[code[i][j]].lower()
+    for i in range(len(code)):
+        code[i] = ''.join(code[i])
+    return ' '.join(code)
 
 
 def main():
