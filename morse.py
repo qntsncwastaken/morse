@@ -35,6 +35,17 @@ def decode_from_morse(code):  # "... --- ...  ... --- ..." => "sos sos" врод
 
 
 def main():
-    action = int(input('Если вы хотите закодировать сообщение - введите 0, раскодировать - 1 \n'))
-    if action == 0:
-        text = input('Введите сообщение \n')
+    action = input('Если вы хотите закодировать сообщение - введите 0, раскодировать - 1; '
+            'завершить работу - 000\n').strip()
+    if action == '0':
+        text = input('Введите сообщение\n')
+        print(f'Закодированное сообщение > {encode_to_morse(text)}')
+    if action == '1':
+        code = input('Введите код\n')
+        print(f'Раскодированное сообщение - {decode_from_morse(code)}.')
+    if action == '000':
+        print('Завершение работы...')
+        return
+    if action != '0' and action != '1' and action != '000':  # значение не является ни одним из допустимых
+        print('Неверный формат ввода. Перезагрузка...')
+    main()
