@@ -37,7 +37,7 @@ def decode_from_morse(code):  # "... --- ...  ... --- ..." => "sos sos" врод
 def main():
     action = input('Если вы хотите закодировать сообщение - введите 0, раскодировать - 1; '
             'завершить работу - 000\n').strip()
-    if action == '0':
+    if action == '0':        #здесь можно сделать if - elif - elif - else. Думаю, так лучше(и оптимизированней)
         text = input('Введите сообщение\n')
         print(f'Закодированное сообщение > {encode_to_morse(text)}')
     if action == '1':
