@@ -19,6 +19,15 @@ reverse_morse = {'.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D',
 
 
 def encode_to_morse(text):  # "sos sos" => "... --- ...  ... --- ..."
+    text = text.split()
+    for i in range(len(text)):
+        text[i] = list(text[i].upper())
+    for i in range(len(text)):
+        for j in range(len(text[i])):
+            text[i][j] = morse[text[i][j]]
+    for i in range(len(text)):
+        text[i] = ' '.join(text[i])
+    text = '  '.join(text)
     return text
 
 
@@ -36,8 +45,8 @@ def decode_from_morse(code):  # "... --- ...  ... --- ..." => "sos sos" врод
 
 def main():
     action = input('Если вы хотите закодировать сообщение - введите 0, раскодировать - 1; '
-            'завершить работу - 000\n').strip()
-    if action == '0':        #здесь можно сделать if - elif - elif - else. Думаю, так лучше(и оптимизированней)
+                   'завершить работу - 000\n').strip()
+    if action == '0':
         text = input('Введите сообщение\n')
         print(f'Закодированное сообщение > {encode_to_morse(text)}')
     if action == '1':
@@ -49,3 +58,7 @@ def main():
     if action != '0' and action != '1' and action != '000':  # значение не является ни одним из допустимых
         print('Неверный формат ввода. Перезагрузка...')
     main()
+
+
+main()
+#немного изменил твою функцию. Подправь что-нидь, а этот комментарий удали
