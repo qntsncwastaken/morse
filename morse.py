@@ -31,7 +31,7 @@ def encode_to_morse(text):  # "sos sos" => "... --- ...  ... --- ..."
     return text
 
 
-def decode_from_morse(code):  # "... --- ...  ... --- ..." => "sos sos" вроде работает
+def decode_from_morse(code):  # "... --- ...  ... --- ..." => "sos sos" 
     code = code.split('  ')
     for i in range(len(code)):
         code[i] = code[i].split()
@@ -61,4 +61,3 @@ def main():
 
 
 main()
-#немного изменил твою функцию. Подправь что-нидь, а этот комментарий удали
